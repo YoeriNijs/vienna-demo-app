@@ -1,6 +1,7 @@
 import {VActivatedRoute, VComponent, VInit} from "vienna-ts";
 import {AuthService} from "../service/auth.service";
 import {User} from "../model/user";
+import {Role} from "../model/role";
 
 @VComponent({
     selector: 'navbar-component',
@@ -18,7 +19,7 @@ import {User} from "../model/user";
                 <true>
                     <div class="navbar-end">
                       <div class="navbar-item">
-                        <span>Hi there, {{ currentUser.firstName }}!</span>
+                        <span>Hi there, {{ currentUser.firstName }} ({{ currentRole }})!</span>
                       </div>
                     </div>
                 </true>
@@ -44,6 +45,7 @@ import {User} from "../model/user";
 export class NavbarComponent implements VInit {
 
     currentUser: User;
+    currentRole: string;
     isLoggedIn = false;
 
     constructor(private activatedRoute: VActivatedRoute, private authService: AuthService) {}
@@ -51,5 +53,8 @@ export class NavbarComponent implements VInit {
     vInit(): void {
         this.isLoggedIn = this.authService.isLoggedIn();
         this.currentUser = this.authService.getUser();
+        this.currentRole = this.currentUser
+            ? this.currentUser.role === Role.ADMIN ? 'admin' : 'member'
+            : undefined;
     }
 }
