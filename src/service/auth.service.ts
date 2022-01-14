@@ -18,7 +18,7 @@ export class AuthService {
         return !!this._activeUser;
     }
 
-    register(user: User) {
+    register(user: User): boolean {
         const alreadyExistingUser = this._users.find(u => u.email === user.email);
         if (alreadyExistingUser) {
             return false;
