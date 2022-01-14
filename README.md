@@ -1,5 +1,5 @@
-# vienna-starter-template
-Vienna starter project. Use this to create a project with [Vienna](https://github.com/YoeriNijs/vienna) from scratch.
+# Vienna demo app
+An example application to demonstrate [Vienna](https://github.com/YoeriNijs/vienna).
 
 ## Getting started
 - `npm install`
@@ -7,9 +7,3 @@ Vienna starter project. Use this to create a project with [Vienna](https://githu
 
 ## Build app
 - `npm run build`
-
-## Test app
-- `npm run test`
-
-## Lint app
-- `npm run lint`
