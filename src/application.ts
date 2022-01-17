@@ -31,7 +31,12 @@ import {LogoffComponent} from "./component/logoff.component";
     routeNotFoundStrategy: { path: '/not-found' },
     globalStyles: [
         { href: 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css' },
-        { style: `           
+        { href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap' },
+        { style: `
+            :host {
+                font-family: 'Lato', sans-serif;  
+            }
+             
             footer {
                 position: absolute;
                 bottom: 0;

@@ -1,4 +1,4 @@
-import {VComponent, VInit, VRouteRedirect} from "vienna-ts";
+import {VComponent, VRouteRedirect} from "vienna-ts";
 import {AuthService} from "../service/auth.service";
 
 @VComponent({
