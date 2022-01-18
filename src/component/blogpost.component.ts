@@ -8,36 +8,37 @@ import {BlogPost} from "../model/blogpost";
     html: `
         <navbar-component></navbar-component>
         
-        <v-check if="hasBlogPost()">
-            <true>
-                <div class="content">
-                    <h2>{{ post.title }}</h2>
-                    <p>
-                        <span>{{ post.body }}</span>
-                    </p>
-                </div>
-            </true>
-            <false>
-                <span>Cannot find blog post</span>
-            </false>
-        </v-check>
+        <div class="container">
+            <v-check if="hasBlogPost()">
+                <true>
+                    <div class="content">
+                        <h2 class="subtitle">{{ post.title }}</h2>
+                        <p>
+                            <span>{{ post.body }}</span>
+                        </p>
+                    </div>
+                </true>
+                <false>
+                    <span>Cannot find blog post with title '{{ postId }}'</span>
+                </false>
+            </v-check>
+        </div>
         
         <footer-component></footer-component>
     `
 })
 export class BlogpostComponent implements VInit {
     post: BlogPost;
+    postId = '';
 
     constructor(private blogsService: BlogService, private activatedRoute: VActivatedRoute) {}
 
     vInit(): void {
-        // this.activatedRoute.params((params) => {
-        //     // debugger;
-        //     // const id = params.find(p => p.id === 'id').value;
-        //     this.post = this.blogsService.getBlogById('1');
-        // });
-
-        this.post = this.blogsService.getBlogById('1');
+        this.activatedRoute.params((params) => {
+            const id = params.find(p => p.id === 'id').value;
+            this.postId = id;
+            this.post = this.blogsService.getBlogById(id);
+        });
     }
 
     hasBlogPost(): boolean {

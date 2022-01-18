@@ -11,6 +11,7 @@ import {DashboardComponent} from "./component/dashboard.component";
 import {LogoffComponent} from "./component/logoff.component";
 import {BlogComponent} from "./component/blog.component";
 import {BlogpostComponent} from "./component/blogpost.component";
+import {BlogListComponent} from "./component/blog-list.component";
 
 @VApplication({
     declarations: [
@@ -23,7 +24,8 @@ import {BlogpostComponent} from "./component/blogpost.component";
         NotFoundComponent,
         DashboardComponent,
         BlogComponent,
-        BlogpostComponent
+        BlogpostComponent,
+        BlogListComponent
     ],
     routes: [
         { path: '/', component: HomeComponent },

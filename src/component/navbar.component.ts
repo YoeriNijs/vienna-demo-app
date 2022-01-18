@@ -19,7 +19,7 @@ import {Role} from "../model/role";
                 <true>
                     <div class="navbar-end">
                       <div class="navbar-item">
-                        <span>Hi there, {{ currentUser.firstName }} ({{ currentRole }})!</span>
+                        <span>Hi there, {{ currentUser.firstName }} (<a href="#/logoff">log off</a>)</span>
                       </div>
                     </div>
                 </true>
