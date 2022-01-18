@@ -9,6 +9,9 @@ import {NotFoundComponent} from "./component/not-found.component";
 import {RegisterComponent} from "./component/register.component";
 import {DashboardComponent} from "./component/dashboard.component";
 import {LogoffComponent} from "./component/logoff.component";
+import {BlogComponent} from "./component/blog.component";
+import {BlogpostComponent} from "./component/blogpost.component";
+import {BlogListComponent} from "./component/blog-list.component";
 
 @VApplication({
     declarations: [
@@ -19,14 +22,24 @@ import {LogoffComponent} from "./component/logoff.component";
         LogoffComponent,
         RegisterComponent,
         NotFoundComponent,
-        DashboardComponent
+        DashboardComponent,
+        BlogComponent,
+        BlogpostComponent,
+        BlogListComponent
     ],
     routes: [
         { path: '/', component: HomeComponent },
         { path: '/login', component: LoginComponent, guards: [NotAuthorizedGuard] },
         { path: '/register', component: RegisterComponent, guards: [NotAuthorizedGuard] },
         { path: '/logoff', component: LogoffComponent, guards: [AuthorizedGuard] },
-        { path: '/not-found', component: NotFoundComponent }
+        { path: '/not-found', component: NotFoundComponent },
+        {
+            path: '/blog',
+            component: BlogComponent,
+            children: [
+                { path: '/:id', component: BlogpostComponent }
+            ]
+        }
     ],
     routeNotFoundStrategy: { path: '/not-found' },
     globalStyles: [
