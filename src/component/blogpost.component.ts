@@ -19,7 +19,7 @@ import {BlogPost} from "../model/blogpost";
                     </div>
                 </true>
                 <false>
-                    <span>Cannot find blog post with title '{{ postId }}'</span>
+                    <span>Cannot find blog post with id '{{ postId }}'</span>
                 </false>
             </v-check>
         </div>
