@@ -59,9 +59,17 @@ import {BlogListComponent} from "./component/blog-list.component";
                 bottom: 0;
                 left: 0;
                 right: 0;
-            }`
+            }
+            
+            .dark-mode {
+                background-color: #000;
+                color: #fff;
+            }
+            
+            `
         }
-    ]
+    ],
+    darkModeCssClassOverride: 'dark-mode'
 })
 export class Application {}
 
