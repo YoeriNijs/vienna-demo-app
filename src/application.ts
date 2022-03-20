@@ -69,7 +69,7 @@ import {BlogListComponent} from "./component/blog-list.component";
             `
         }
     ],
-    darkModeCssClassOverride: 'dark-mode'
+    darkModeClassOverride: 'dark-mode'
 })
 export class Application {}
 
