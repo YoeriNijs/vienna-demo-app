@@ -69,7 +69,16 @@ import {BlogListComponent} from "./component/blog-list.component";
             `
         }
     ],
-    darkModeClassOverride: 'dark-mode'
+    darkModeClassOverride: 'dark-mode',
+    plugins: {
+        logger: {
+            process: logs => {
+                // Your logging implementation (e.g. send logs to external logging provider, such as Sentry).
+                // For demo purposes, we just log everything for now.
+                console.log(logs);
+            }
+        }
+    }
 })
 export class Application {}
 

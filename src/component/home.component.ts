@@ -1,4 +1,4 @@
-import {VComponent, VInit} from "vienna-ts";
+import {VComponent, VInit, VLogger} from "vienna-ts";
 import {AuthService} from "../service/auth.service";
 
 @VComponent({
@@ -30,9 +30,10 @@ export class HomeComponent implements VInit {
 
     isLoggedIn = false;
 
-    constructor(private authService: AuthService) {}
+    constructor(private _authService: AuthService, private _logger: VLogger) {}
 
     vInit(): void {
-        this.isLoggedIn = this.authService.isLoggedIn();
+        this.isLoggedIn = this._authService.isLoggedIn();
+        this._logger.debug(`User is logged in: ${this.isLoggedIn}`);
     }
 }
