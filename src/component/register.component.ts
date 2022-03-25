@@ -1,4 +1,4 @@
-import {VComponent, VRouteRedirect} from "vienna-ts";
+import {VAudit, VComponent, VRouteRedirect} from "vienna-ts";
 import {AuthService} from "../service/auth.service";
 import {Role} from "../model/role";
 
@@ -80,17 +80,19 @@ export class RegisterComponent {
 
     userCreated = false;
 
-    constructor(private authService: AuthService, private redirectHelper: VRouteRedirect) {}
+    constructor(private authService: AuthService,
+                private redirectHelper: VRouteRedirect,
+                private audit: VAudit) {}
 
     register(): void {
         const firstName = this.firstNameInput.value;
-        this.invalidFirstName = !firstName || firstName.length < 1;
+        this.invalidFirstName = this.audit.isBlank(firstName);
 
         const lastName = this.lastNameInput.value;
-        this.invalidLastName = !lastName || lastName.length < 1;
+        this.invalidLastName = this.audit.isBlank(lastName);
 
         const email = this.emailInput.value;
-        this.invalidEmail = !email || email.length < 1;
+        this.invalidEmail = !this.audit.isValidEmail(email);
 
         const password = this.passwordInput.value;
         this.invalidPassword = !password || password.length < 8;
