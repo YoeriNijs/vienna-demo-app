@@ -1,4 +1,4 @@
-import {VActivatedRoute, VComponent, VInit} from "vienna-ts";
+import {VActivatedRoute, VComponent, VInit, VWeb} from "vienna-ts";
 import {BlogService} from "../service/blog.service";
 import {BlogPost} from "../model/blogpost";
 
@@ -31,13 +31,16 @@ export class BlogpostComponent implements VInit {
     post: BlogPost;
     postId = '';
 
-    constructor(private blogsService: BlogService, private activatedRoute: VActivatedRoute) {}
+    constructor(private blogsService: BlogService,
+                private activatedRoute: VActivatedRoute,
+                private web: VWeb) {}
 
     vInit(): void {
         this.activatedRoute.params((params) => {
             const id = params.find(p => p.id === 'id').value;
             this.postId = id;
             this.post = this.blogsService.getBlogById(id);
+            this.web.overrideTags({ title: this.post.title })
         });
     }
 

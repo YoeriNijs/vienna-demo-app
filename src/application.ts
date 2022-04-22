@@ -29,8 +29,18 @@ import {BlogListComponent} from "./component/blog-list.component";
     ],
     routes: [
         { path: '/', component: HomeComponent },
-        { path: '/login', component: LoginComponent, guards: [NotAuthorizedGuard] },
-        { path: '/register', component: RegisterComponent, guards: [NotAuthorizedGuard] },
+        {
+            path: '/login',
+            component: LoginComponent,
+            guards: [NotAuthorizedGuard],
+            docTags: { title: 'Login'}
+        },
+        {
+            path: '/register',
+            component: RegisterComponent,
+            guards: [NotAuthorizedGuard],
+            docTags: { title: 'Register' }
+        },
         { path: '/logoff', component: LogoffComponent, guards: [AuthorizedGuard] },
         { path: '/not-found', component: NotFoundComponent },
         {
