@@ -14,6 +14,10 @@ import {BlogPost} from "../model/blogpost";
                     <div class="content">
                         <h2 class="subtitle">{{ post.title }}</h2>
                         <p>
+                            <span>Written by: </span>
+                            <span class="is-italic">{{ post.author }}</span>
+                        </p>
+                        <p>
                             <span>{{ post.body }}</span>
                         </p>
                     </div>

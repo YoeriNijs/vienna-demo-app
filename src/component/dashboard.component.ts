@@ -1,5 +1,6 @@
 import {VComponent, VRouteRedirect} from "vienna-ts";
 import {BlogService} from "../service/blog.service";
+import {AuthService} from "../service/auth.service";
 
 @VComponent({
     selector: 'dashboard-component',
@@ -16,7 +17,10 @@ export class DashboardComponent {
     blogTitle: HTMLInputElement;
     blogBody: HTMLTextAreaElement;
 
-    constructor(private blogService: BlogService, private redirectHelper: VRouteRedirect) {}
+    constructor(
+        private blogService: BlogService,
+        private redirectHelper: VRouteRedirect,
+        private authService: AuthService) {}
 
     addBlogPost(): void {
         const title = this.blogTitle.value;
@@ -26,7 +30,9 @@ export class DashboardComponent {
             return;
         }
 
-        this.blogService.add(title, body);
+        const user = this.authService.getUser();
+        const author = `${user.firstName} ${user.lastName}`;
+        this.blogService.add(title, body, author);
 
         alert('Post published!');
 
