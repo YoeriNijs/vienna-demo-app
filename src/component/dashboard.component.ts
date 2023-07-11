@@ -9,7 +9,8 @@ import {AuthService} from "../service/auth.service";
         <h2 class="subtitle">Publish new blog post</h2>
         <input @bind="blogTitle" class="input" type="text" placeholder="Blog title" minlength="1">
         <textarea @bind="blogBody" class="textarea mt-2" minlength="1"></textarea>
-        <button @click="addBlogPost()" class="button is-primary mt-2" type="button">Publish!</button>
+        <button @click="addBlogPost()" class="button is-primary mt-2 mr-2" type="button">Publish!</button>
+        <button @click="cancel()" class="button is-secondary mt-2" type="button">Cancel</button>
     `
 })
 export class DashboardComponent {
@@ -37,6 +38,10 @@ export class DashboardComponent {
         alert('Post published!');
 
         this.redirectHelper.redirectTo('#/blog');
+    }
+
+    cancel(): void {
+        this.redirectHelper.redirectToRoot();
     }
 
 }

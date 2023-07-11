@@ -14,7 +14,7 @@ import {AuthService} from "../service/auth.service";
         <div class="wrapper">
             <v-check if="{{ isLoggedIn }}">
                 <true>
-                    <dashboard-component></dashboard-component>
+                    <blog-list-component></blog-list-component>
                 </true>
                 <false>
                     <blog-list-component></blog-list-component>
