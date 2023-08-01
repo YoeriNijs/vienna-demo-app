@@ -41,6 +41,12 @@ import {BlogListComponent} from "./component/blog-list.component";
             guards: [NotAuthorizedGuard],
             docTags: { title: 'Register' }
         },
+        {
+            path: '/dashboard',
+            component: DashboardComponent,
+            guards: [AuthorizedGuard],
+            docTags: { title: 'Dashboard'}
+        },
         { path: '/logoff', component: LogoffComponent, guards: [AuthorizedGuard] },
         { path: '/not-found', component: NotFoundComponent },
         {
