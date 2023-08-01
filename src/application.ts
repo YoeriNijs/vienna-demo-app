@@ -79,7 +79,9 @@ import {BlogListComponent} from "./component/blog-list.component";
             `
         }
     ],
-    darkModeClassOverride: 'dark-mode',
+    darkMode: {
+        darkModeClassOverride: 'dark-mode'
+    },
     plugins: {
         logger: {
             process: logs => {
